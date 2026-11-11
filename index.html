@@ -103,11 +103,11 @@ dialog.fx{position:fixed}
 .zones{background:var(--paper);color:var(--ink);padding:clamp(70px,10vw,130px) var(--pad)}
 .zones .eyebrow{color:#8a6a1c}
 .zones h2{font-size:clamp(2.2rem,5vw,4rem);margin:10px 0 36px}
-.zrow{position:relative;display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:18px;padding:26px 0;border-top:1px solid var(--line-dark);text-decoration:none;min-height:44px;transition:padding .3s}
+.zrow{position:relative;display:grid;grid-template-columns:70px 1fr;align-items:center;gap:18px;padding:26px 0;border-top:1px solid var(--line-dark);text-decoration:none;min-height:44px;transition:padding .3s}
 .zrow:last-of-type{border-bottom:1px solid var(--line-dark)}
 .zrow .n{font:500 1rem var(--serif);color:#8a6a1c}
 .zrow .t{font:500 clamp(1.8rem,4vw,3rem)/1.1 var(--serif)}
-.zrow .a{font-weight:700;font-size:.9rem;white-space:nowrap}
+
 .zrow:hover{padding-left:14px}
 .zrow .pv{display:none}
 @media (min-width:900px){
@@ -167,7 +167,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Jose Luis Herrera, P.A.","description":"Realtor® en Miami, Florida","image":"assets/logo.webp","telephone":"+1-786-332-0991","email":"joseluis@realtygroup.miami","address":{"@type":"PostalAddress","streetAddress":"2470 NW 102nd Place, Suite 107","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"identifier":"LIC #3423324","parentOrganization":{"@type":"RealEstateAgent","name":"Miami New Realty","telephone":"+1-786-762-4249"},"knowsLanguage":["en","es"],"sameAs":["https://www.facebook.com/JoseLuisHerreraRealtor","https://www.instagram.com/joseluisherrerarealtor","https://www.linkedin.com/in/joseluisherrerafleites","https://www.youtube.com/channel/UCVaxOjpCGGSymqZ9pJswRJg"]}
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Jose Luis Herrera, P.A.","description":"Realtor® en Miami, Florida","image":"assets/logo.webp","telephone":"+1-786-332-0991","email":"joseluis@realtygroup.miami","address":{"@type":"PostalAddress","streetAddress":"2470 NW 102nd Place, Suite 107","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"identifier":"LIC #3423324","parentOrganization":{"@type":"RealEstateAgent","name":"Miami New Realty","telephone":"+1-786-762-4249"},"knowsLanguage":["en","es"]}
 </script>
 </head>
 <body>
@@ -201,7 +201,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
   <div class="sec-head rv">
     <p class="eyebrow" data-i18n="p_eye">Propiedades disponibles</p>
     <h2 data-i18n="p_h">30 propiedades, cada una con su ficha</h2>
-    <p data-i18n="p_p">Toca una propiedad para ver sus fotos, precio, datos y descripción. Desde ahí la abres completa en el sitio original o le escribes a José Luis.</p>
+    <p data-i18n="p_p">Toca una propiedad para ver sus fotos, precio, datos y descripción. Desde ahí le escribes a José Luis por esa propiedad.</p>
   </div>
   <div class="filters" role="group" aria-label="Filtro / Filter">
     <button type="button" data-f="all" aria-pressed="true" data-i18n="f_all">Todas</button>
@@ -210,21 +210,17 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
     <button type="button" data-f="multi" aria-pressed="false" data-i18n="f_multi">Dúplex / multifamiliar</button>
   </div>
   <div class="grid" id="grid"></div>
-  <div class="more rv">
-    <a class="btn btn-gold" href="https://realtygroup.miami/house/?action=1" target="_blank" rel="noopener" data-i18n="more">Ver todas las propiedades</a>
-    <a class="btn btn-line" href="https://realtygroup.miami/pre-construction/" target="_blank" rel="noopener" data-i18n="precon">Pre-construcción</a>
-  </div>
 </section>
 <dialog class="fx" id="fx" aria-label="Ficha"><button class="fx-close" id="fxc" type="button" aria-label="Cerrar / Close">&times;</button><div class="fx-in" id="fxin"></div></dialog>
 
 <section class="zones" id="zonas">
   <p class="eyebrow rv" data-i18n="z_eye">Zonas</p>
   <h2 class="rv" data-i18n="z_h">¿Dónde quieres vivir?</h2>
-  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33128,33129,33130,33131,33132,33136" target="_blank" rel="noopener"><span class="n">01</span><span class="t">Downtown &amp; Brickell</span><img class="pv" src="assets/zone-brickell.webp" alt="" width="730" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
-  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33109,33119,33139,33140,33141,33239,33299" target="_blank" rel="noopener"><span class="n">02</span><span class="t">Miami Beach</span><img class="pv" src="assets/zone-beach.webp" alt="" width="340" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
-  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33143,33173,33183,33256,33296,33156,33176,33186,33283,33193,33173,33196,33186,33176" target="_blank" rel="noopener"><span class="n">03</span><span class="t">Kendall</span><img class="pv" src="assets/zone-kendall.webp" alt="" width="340" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
-  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33124,33134,33144,33156,33206,33133,33143,33146,33158" target="_blank" rel="noopener"><span class="n">04</span><span class="t">Coral Gables</span><img class="pv" src="assets/zone-gables.webp" alt="" width="340" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
-  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33122,33126,33166,33172,33178,33191,33192" target="_blank" rel="noopener"><span class="n">05</span><span class="t">Doral</span><span class="a" data-i18n="z_go">Ver casas →</span></a>
+  <div class="zrow rv"><span class="n">01</span><span class="t">Downtown &amp; Brickell</span><img class="pv" src="assets/zone-brickell.webp" alt="" width="730" height="400" loading="lazy"></div>
+  <div class="zrow rv"><span class="n">02</span><span class="t">Miami Beach</span><img class="pv" src="assets/zone-beach.webp" alt="" width="340" height="400" loading="lazy"></div>
+  <div class="zrow rv"><span class="n">03</span><span class="t">Kendall</span><img class="pv" src="assets/zone-kendall.webp" alt="" width="340" height="400" loading="lazy"></div>
+  <div class="zrow rv"><span class="n">04</span><span class="t">Coral Gables</span><img class="pv" src="assets/zone-gables.webp" alt="" width="340" height="400" loading="lazy"></div>
+  <div class="zrow rv"><span class="n">05</span><span class="t">Doral</span></div>
 </section>
 
 <section class="about" id="sobre-mi">
@@ -236,14 +232,14 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
       <div><dt data-i18n="f_lic">Licencia</dt><dd>LIC # 3423324</dd></div>
       <div><dt data-i18n="f_bro">Brokerage</dt><dd>Miami New Realty</dd></div>
       <div><dt data-i18n="f_lang">Idiomas</dt><dd>English · Español</dd></div>
-      <div><dt data-i18n="f_rev">Reseñas en Google</dt><dd><a href="https://maps.google.com/?cid=11353234218788330645" target="_blank" rel="noopener">103</a></dd></div>
+      <div><dt data-i18n="f_rev">Reseñas en Google</dt><dd>103</dd></div>
     </dl>
   </div>
   <div class="quotes">
     <figure class="quote rv"><blockquote>“Jose is by far the best realtor in Miami—if not in the entire tri-county area.”</blockquote><cite>Abel Deulofeu</cite></figure>
     <figure class="quote rv"><blockquote>“He was by our side every step of the way during the sale of our house”</blockquote><cite>Birgit Iff</cite></figure>
     <figure class="quote rv"><blockquote>“Pocas palabras para definirlo: transparencia, exelencia y profesionalidad !”</blockquote><cite>Gonzalo Salazar</cite></figure>
-    <p class="qnote"><span data-i18n="q_note">Extractos de reseñas de clientes en</span> <a href="https://realtygroup.miami/" target="_blank" rel="noopener">realtygroup.miami</a>.</p>
+    <p class="qnote"><span data-i18n="q_note">Extractos de reseñas de clientes en</span> realtygroup.miami.</p>
   </div>
 </section>
 
@@ -259,12 +255,6 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
     <a href="mailto:joseluis@realtygroup.miami"><span data-i18n="c_mail">Correo</span><span>joseluis@realtygroup.miami</span></a>
     <a href="tel:+17863320991"><span data-i18n="c_tel">Teléfono</span><span>786.332.0991</span></a>
     <div><span data-i18n="c_addr">Oficina</span><span>2470 NW 102nd Place, Suite 107, Doral, FL 33172</span></div>
-  </div>
-  <div class="social rv">
-    <a href="https://www.instagram.com/joseluisherrerarealtor" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.facebook.com/JoseLuisHerreraRealtor" target="_blank" rel="noopener">Facebook</a>
-    <a href="https://www.linkedin.com/in/joseluisherrerafleites" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://www.youtube.com/channel/UCVaxOjpCGGSymqZ9pJswRJg" target="_blank" rel="noopener">YouTube</a>
   </div>
 </section>
 </main>
@@ -290,7 +280,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
       hero_p:"Compra, vende o renta con un Realtor® que te acompaña en cada paso. Hablemos por WhatsApp, en español o en inglés.",
       cta_wa:"Escríbeme por WhatsApp",cta_props:"Ver propiedades",
       p_eye:"Propiedades disponibles",
-      p_h:"30 propiedades, cada una con su ficha",p_p:"Toca una propiedad para ver sus fotos, precio, datos y descripción. Desde ahí la abres completa en el sitio original o le escribes a José Luis.",f_all:"Todas",f_house:"Casas",f_condo:"Condominios",f_multi:"Dúplex / multifamiliar",m_beds:"Hab.",m_baths:"Baños",m_sqft:"Pies²",m_year:"Año",m_orig:"Ver ficha en el sitio original",m_wa:"Preguntar por esta propiedad",m_by:"Cortesía de",m_dnote:"Descripción original en inglés.",k_house:"Casa",k_condo:"Condominio",k_multi:"Dúplex / multifamiliar",m_ask:"Hola José Luis, me interesa la propiedad ",m_ask2:" (MLS ",view:"Ver propiedad",more:"Ver todas las propiedades",precon:"Pre-construcción",
+      p_h:"30 propiedades, cada una con su ficha",p_p:"Toca una propiedad para ver sus fotos, precio, datos y descripción. Desde ahí le escribes a José Luis por esa propiedad.",f_all:"Todas",f_house:"Casas",f_condo:"Condominios",f_multi:"Dúplex / multifamiliar",m_beds:"Hab.",m_baths:"Baños",m_sqft:"Pies²",m_year:"Año",m_orig:"Ver ficha en el sitio original",m_wa:"Preguntar por esta propiedad",m_by:"Cortesía de",m_dnote:"Descripción original en inglés.",k_house:"Casa",k_condo:"Condominio",k_multi:"Dúplex / multifamiliar",m_ask:"Hola José Luis, me interesa la propiedad ",m_ask2:" (MLS ",view:"Ver propiedad",more:"Ver todas las propiedades",precon:"Pre-construcción",
       z_eye:"Zonas",z_h:"¿Dónde quieres vivir?",z_go:"Ver casas →",
       a_eye:"Sobre mí",a_h:"Siempre a tu lado",
       a_p:"Soy José Luis Herrera, Realtor® de servicio completo y tiempo completo, experto en marketing. Te acompaño tanto si compras, vendes o rentas una casa en Miami.",
@@ -308,7 +298,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
       hero_p:"Buy, sell or rent with a Realtor® who walks with you every step of the way. Let's talk on WhatsApp, in English or Spanish.",
       cta_wa:"Message me on WhatsApp",cta_props:"View properties",
       p_eye:"Available properties",
-      p_h:"30 properties, each with its own listing",p_p:"Tap a property to see its photos, price, details and description. From there, open it in full on the original site or message Jose Luis.",f_all:"All",f_house:"Houses",f_condo:"Condos",f_multi:"Duplex / multifamily",m_beds:"Beds",m_baths:"Baths",m_sqft:"Sq ft",m_year:"Year",m_orig:"View listing on the original site",m_wa:"Ask about this property",m_by:"Courtesy of",m_dnote:"",k_house:"House",k_condo:"Condo",k_multi:"Duplex / multifamily",m_ask:"Hi Jose Luis, I'm interested in the property at ",m_ask2:" (MLS ",view:"View property",more:"See all properties",precon:"Pre-construction",
+      p_h:"30 properties, each with its own listing",p_p:"Tap a property to see its photos, price, details and description. From there, message Jose Luis about that property.",f_all:"All",f_house:"Houses",f_condo:"Condos",f_multi:"Duplex / multifamily",m_beds:"Beds",m_baths:"Baths",m_sqft:"Sq ft",m_year:"Year",m_orig:"View listing on the original site",m_wa:"Ask about this property",m_by:"Courtesy of",m_dnote:"",k_house:"House",k_condo:"Condo",k_multi:"Duplex / multifamily",m_ask:"Hi Jose Luis, I'm interested in the property at ",m_ask2:" (MLS ",view:"View property",more:"See all properties",precon:"Pre-construction",
       z_eye:"Areas",z_h:"Where do you want to live?",z_go:"See homes →",
       a_eye:"About me",a_h:"Always by your side",
       a_p:"I'm Jose Luis Herrera, a full-service, full-time Realtor® and marketing expert. I'm with you whether you buy, sell or rent a home in Miami.",
@@ -386,7 +376,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
       '<div class="fx-body"><p class="eyebrow">'+esc(d["k_"+p.kind])+' · MLS '+esc(p.mls)+'</p><h3>'+esc(p.addr)+'</h3><p class="price">'+money(p.price)+'</p>'+
       (facts.length?'<dl class="fx-facts">'+facts.map(function(f){return '<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>';}).join("")+'</dl>':'')+
       '<div class="fx-desc">'+esc(p.desc)+(lang==="es"&&p.desc?'<br><em>'+esc(d.m_dnote)+'</em>':'')+'</div>'+(p.by?'<p class="fx-by">'+esc(d.m_by)+' '+esc(p.by)+'</p>':'')+
-      '<div class="cta"><a class="btn btn-gold" href="'+wa+'" target="_blank" rel="noopener">'+esc(d.m_wa)+'</a><a class="btn btn-line" href="https://realtygroup.miami/property/?pk='+p.pk+'&fb=" target="_blank" rel="noopener">'+esc(d.m_orig)+'</a></div></div>';
+      '<div class="cta"><a class="btn btn-gold" href="'+wa+'" target="_blank" rel="noopener">'+esc(d.m_wa)+'</a></div></div>';
     if(fx.showModal)fx.showModal();else fx.setAttribute("open","");
     fx.scrollTop=0;
   }
