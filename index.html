@@ -1,0 +1,367 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jose Luis Herrera · Realtor en Miami</title>
+<meta name="description" content="Jose Luis Herrera, Realtor® en Miami. Casas en Kendall, Doral, Cutler Bay y más. Escríbele por WhatsApp.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0e2a37">
+<link rel="icon" href="assets/logo.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e2a37; --bg2:#14394a; --brand:#14394a; --accent:#d2ab55; --accent-ink:#3a2b08;
+  --text:#f6f0e4; --muted:#b9c6cc; --paper:#f6f0e4; --ink:#10303e; --ink-muted:#4d6470;
+  --line:rgba(246,240,228,.18); --line-dark:rgba(16,48,62,.18);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;transition:transform .25s,background .25s,color .25s,border-color .25s}
+.btn-gold{background:var(--accent);color:var(--accent-ink)}
+.btn-gold:hover{transform:translateY(-2px);background:#e2bd69}
+.btn-line{border:1.5px solid var(--line);color:var(--text)}
+.btn-line:hover{border-color:var(--accent);color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* header */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);transition:background .3s,backdrop-filter .3s}
+.top.solid{background:rgba(14,42,55,.88);backdrop-filter:blur(10px)}
+.top img{height:38px;width:auto}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--text);font:700 .85rem var(--sans);letter-spacing:.08em;min-width:48px;min-height:44px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;z-index:-2}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 9s ease-out}
+.slide.on img{transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,42,55,.55) 0%,rgba(14,42,55,.25) 35%,rgba(14,42,55,.92) 100%)}
+.hero-in{width:100%;padding:120px var(--pad) clamp(40px,8vh,90px);display:grid;gap:26px;max-width:1280px}
+.hero-logo{width:min(440px,78vw);height:auto}
+.hero h1{font-size:clamp(2.6rem,7vw,5.6rem);max-width:15ch}
+.hero h1 em{color:var(--accent);font-style:italic}
+.hero p{max-width:46ch;color:#e6e9e6;font-size:1.1rem}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.dots{position:absolute;right:var(--pad);bottom:clamp(40px,8vh,90px);display:flex;gap:8px}
+.dots span{width:28px;height:3px;background:rgba(255,255,255,.35)}
+.dots span.on{background:var(--accent)}
+
+/* properties */
+.props{background:var(--bg);padding:clamp(70px,10vw,130px) 0 0}
+.sec-head{padding:0 var(--pad) 36px;max-width:1280px}
+.sec-head h2{font-size:clamp(2.2rem,5vw,4rem);margin-top:10px}
+.sec-head p{color:var(--muted);margin-top:14px;max-width:52ch}
+.pin{overflow:hidden}
+.track{display:flex;gap:26px;padding:0 var(--pad) 28px;width:max-content}
+.card{width:min(420px,78vw);flex:none;text-decoration:none;display:block;scroll-snap-align:start}
+.card .ph{aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--bg2)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .ph img{transform:scale(1.05)}
+.card .meta{display:flex;justify-content:space-between;gap:10px;margin-top:16px;color:var(--accent);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.card h3{font-size:1.7rem;margin-top:4px}
+.card .spec{color:var(--muted);font-size:.95rem;margin-top:4px}
+.card .go{display:inline-block;margin-top:12px;border-bottom:1px solid var(--accent);font-weight:600;font-size:.92rem}
+.more{padding:0 var(--pad) clamp(70px,9vw,120px);display:flex;flex-wrap:wrap;gap:14px}
+@media (max-width:899px){
+  .pin{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .track{scroll-padding-left:var(--pad)}
+}
+.reduced .pin{overflow-x:auto}
+
+/* zones */
+.zones{background:var(--paper);color:var(--ink);padding:clamp(70px,10vw,130px) var(--pad)}
+.zones .eyebrow{color:#8a6a1c}
+.zones h2{font-size:clamp(2.2rem,5vw,4rem);margin:10px 0 36px}
+.zrow{position:relative;display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:18px;padding:26px 0;border-top:1px solid var(--line-dark);text-decoration:none;min-height:44px;transition:padding .3s}
+.zrow:last-of-type{border-bottom:1px solid var(--line-dark)}
+.zrow .n{font:500 1rem var(--serif);color:#8a6a1c}
+.zrow .t{font:500 clamp(1.8rem,4vw,3rem)/1.1 var(--serif)}
+.zrow .a{font-weight:700;font-size:.9rem;white-space:nowrap}
+.zrow:hover{padding-left:14px}
+.zrow .pv{display:none}
+@media (min-width:900px){
+  .zrow .pv{display:block;position:absolute;right:150px;top:50%;width:200px;height:120px;object-fit:cover;border-radius:6px;transform:translateY(-50%) scale(.9);opacity:0;transition:.4s;pointer-events:none}
+  .zrow:hover .pv{opacity:1;transform:translateY(-50%) scale(1)}
+}
+.zones .note{margin-top:22px;color:var(--ink-muted);font-size:.9rem}
+
+/* about */
+.about{background:var(--bg2);padding:clamp(70px,10vw,130px) var(--pad);display:grid;gap:clamp(40px,6vw,90px);grid-template-columns:1fr}
+@media (min-width:980px){.about{grid-template-columns:1fr 1.1fr;align-items:start}}
+.about h2{font-size:clamp(2.2rem,5vw,4rem);margin:10px 0 22px}
+.about p{color:#dfe5e6;max-width:56ch}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:30px;border:1px solid var(--line)}
+.facts div{background:var(--bg2);padding:18px 20px}
+.facts dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.facts dd{margin-top:4px;font-weight:600}
+.facts a{text-decoration:none;word-break:break-word}
+.quotes{display:grid;gap:22px}
+.quote{border-left:2px solid var(--accent);padding:4px 0 4px 24px}
+.quote blockquote{font:italic 500 clamp(1.35rem,2.4vw,1.8rem)/1.3 var(--serif)}
+.quote cite{display:block;margin-top:10px;font-style:normal;font-size:.85rem;color:var(--muted);letter-spacing:.06em}
+.qnote{color:var(--muted);font-size:.85rem}
+.qnote a{color:var(--accent)}
+
+/* contact */
+.contact{background:var(--paper);color:var(--ink);padding:clamp(70px,10vw,130px) var(--pad);text-align:left}
+.contact .eyebrow{color:#8a6a1c}
+.contact h2{font-size:clamp(2.4rem,6vw,5rem);max-width:14ch;margin:10px 0 20px}
+.contact p.lead{max-width:50ch;color:var(--ink-muted)}
+.contact .cta{margin:28px 0 44px}
+.contact .btn-line{border-color:var(--line-dark);color:var(--ink)}
+.contact .btn-line:hover{border-color:var(--ink);color:var(--ink)}
+.clist{display:grid;gap:0;max-width:720px}
+.clist a,.clist div{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--line-dark);text-decoration:none;min-height:44px;flex-wrap:wrap}
+.clist span:first-child{color:var(--ink-muted);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.clist span:last-child{font-weight:600}
+.social{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.social a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border:1px solid var(--line-dark);border-radius:999px;text-decoration:none;font-weight:600;font-size:.92rem}
+.social a:hover{background:var(--ink);color:var(--paper)}
+
+/* footer */
+footer{background:var(--bg);padding:50px var(--pad) 110px;display:grid;gap:22px;color:var(--muted);font-size:.88rem}
+footer img{height:44px;width:auto}
+footer .row{display:flex;flex-wrap:wrap;gap:12px 36px}
+
+.float{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 26px rgba(0,0,0,.35);transition:transform .25s}
+.float:hover{transform:scale(1.08)}
+.float svg{width:32px;height:32px;fill:#fff}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .slide,.slide img,.zrow,.card .ph img{transition:none}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Jose Luis Herrera, P.A.","description":"Realtor® en Miami, Florida","image":"assets/logo.webp","telephone":"+1-786-332-0991","email":"joseluis@realtygroup.miami","address":{"@type":"PostalAddress","streetAddress":"2470 NW 102nd Place, Suite 107","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"identifier":"LIC #3423324","parentOrganization":{"@type":"RealEstateAgent","name":"Miami New Realty","telephone":"+1-786-762-4249"},"knowsLanguage":["en","es"],"sameAs":["https://www.facebook.com/JoseLuisHerreraRealtor","https://www.instagram.com/joseluisherrerarealtor","https://www.linkedin.com/in/joseluisherrerafleites","https://www.youtube.com/channel/UCVaxOjpCGGSymqZ9pJswRJg"]}
+</script>
+</head>
+<body>
+
+<header class="top" id="top">
+  <a href="#hero" aria-label="Jose Luis Herrera Real Estate"><img src="assets/logo-light.webp" width="200" height="38" alt="Jose Luis Herrera Real Estate"></a>
+  <div class="lang" role="group" aria-label="Language / Idioma">
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="es" aria-pressed="true">ES</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="hero">
+  <div class="slide on"><img src="assets/home-1.webp" alt="Casa en Miami al atardecer, entrada con luces" data-i18n-alt="alt_h1" width="1400" height="938"></div>
+  <div class="slide"><img src="assets/home-12.webp" alt="Casa con puerta roja bajo un cielo de atardecer" data-i18n-alt="alt_h2" width="1400" height="933" loading="lazy"></div>
+  <div class="slide"><img src="assets/home-2.webp" alt="Casa con garaje y palmeras bajo cielo azul" data-i18n-alt="alt_h3" width="1400" height="1050" loading="lazy"></div>
+  <div class="hero-in">
+    <img class="hero-logo" src="assets/logo-light.webp" width="1030" height="194" alt="Jose Luis Herrera Real Estate">
+    <h1><span data-i18n="h1a">Tu próxima casa en Miami,</span> <em data-i18n="h1b">con alguien a tu lado.</em></h1>
+    <p data-i18n="hero_p">Compra, vende o renta con un Realtor® que te acompaña en cada paso. Hablemos por WhatsApp, en español o en inglés.</p>
+    <div class="cta">
+      <a class="btn btn-gold" data-wa href="https://wa.me/17863320991" target="_blank" rel="noopener"><span data-i18n="cta_wa">Escríbeme por WhatsApp</span></a>
+      <a class="btn btn-line" href="#propiedades" data-i18n="cta_props">Ver propiedades</a>
+    </div>
+  </div>
+  <div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+</section>
+
+<section class="props" id="propiedades">
+  <div class="sec-head rv">
+    <p class="eyebrow" data-i18n="p_eye">Propiedades disponibles</p>
+    <h2 data-i18n="p_h">Casas listas para conocer</h2>
+    <p data-i18n="p_p">Una selección de las propiedades publicadas por José Luis. Cada una abre su ficha completa.</p>
+  </div>
+  <div class="pin" id="pin">
+    <div class="track" id="track">
+      <a class="card" href="https://realtygroup.miami/property/?pk=1130953b1ba850ececbfe2186b754fc8&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-1.webp" alt="14001 SW 108th St, Miami" width="1400" height="938"></div><div class="meta"><span>Kendall · 33186</span><span>MLS A12023908</span></div><h3>14001 SW 108th St</h3><p class="spec">4 bd · 3 ba · 2,263 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=ec2919535608d70645921df683c923f5&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-2.webp" alt="14683 SW 132nd Ave, Miami" width="1400" height="1050"></div><div class="meta"><span>Miami · 33186</span><span>MLS A12087421</span></div><h3>14683 SW 132nd Ave</h3><p class="spec">4 bd · 3 ba · 2,198 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=4f617a952fcb6e3a9d19508e792a99ce&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-3.webp" alt="9122 SW 127th Ave, Miami" width="1400" height="932"></div><div class="meta"><span>Miami · 33186</span><span>MLS A12109163</span></div><h3>9122 SW 127th Ave</h3><p class="spec">3 bd · 2 ba · 1,468 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=3fea61304c319e84257c91ce3b4da781&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-4.webp" alt="9990 Marlin Rd, Cutler Bay" width="1400" height="936"></div><div class="meta"><span>Cutler Bay · 33157</span><span>MLS A12104524</span></div><h3>9990 Marlin Rd</h3><p class="spec">5 bd · 3 ba · 2,405 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=eb0d5e18c75ae3104927a0feddf1e247&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-5.webp" alt="1274 NW 55th Ter, Miami" width="1400" height="933"></div><div class="meta"><span>Miami · 33142</span><span>MLS A12082740</span></div><h3>1274 NW 55th Ter</h3><p class="spec">5 bd · 3 ba · 2,444 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=0e937ff8e6b71f48615dd05d93d40ba4&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-6.webp" alt="13711 SW 108th St, Miami" width="1400" height="933"></div><div class="meta"><span>Kendall · 33186</span><span>MLS A12095849</span></div><h3>13711 SW 108th St</h3><p class="spec">3 bd · 3 ba · 1,762 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=e3829f476eb824ca97f763a563585fb3&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-7.webp" alt="15749 SW 136th Ter, Miami" width="1131" height="848"></div><div class="meta"><span>Miami · 33196</span><span>MLS A12065535</span></div><h3>15749 SW 136th Ter</h3><p class="spec">4 bd · 4 ba · 2,534 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=9e0b24764b2ece40db2439eaeb83b9e1&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-10.webp" alt="14716 SW 111th Ter, Miami" width="1197" height="1025"></div><div class="meta"><span>Miami · 33196</span><span>MLS A12102713</span></div><h3>14716 SW 111th Ter</h3><p class="spec">4 bd · 2 ba · 2,102 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=d0ccd902fb261aa0f1f25a92bf8d9c13&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-11.webp" alt="7645 SW 193rd Ln, Cutler Bay" width="1248" height="1066"></div><div class="meta"><span>Cutler Bay · 33157</span><span>MLS A12119392</span></div><h3>7645 SW 193rd Ln</h3><p class="spec">4 bd · 3 ba · 2,723 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+      <a class="card" href="https://realtygroup.miami/property/?pk=0ff5c9a8a5e42cd327b2d721555648b5&fb=" target="_blank" rel="noopener"><div class="ph"><img src="assets/home-12.webp" alt="14914 SW 142nd Pl, Miami" width="1248" height="1066"></div><div class="meta"><span>Miami · 33186</span><span>MLS A12002442</span></div><h3>14914 SW 142nd Pl</h3><p class="spec">3 bd · 3 ba · 1,799 sq ft</p><span class="go" data-i18n="view">Ver propiedad</span></a>
+    </div>
+  </div>
+  <div class="more rv">
+    <a class="btn btn-gold" href="https://realtygroup.miami/house/?action=1" target="_blank" rel="noopener" data-i18n="more">Ver todas las propiedades</a>
+    <a class="btn btn-line" href="https://realtygroup.miami/pre-construction/" target="_blank" rel="noopener" data-i18n="precon">Pre-construcción</a>
+  </div>
+</section>
+
+<section class="zones" id="zonas">
+  <p class="eyebrow rv" data-i18n="z_eye">Zonas</p>
+  <h2 class="rv" data-i18n="z_h">¿Dónde quieres vivir?</h2>
+  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33128,33129,33130,33131,33132,33136" target="_blank" rel="noopener"><span class="n">01</span><span class="t">Downtown &amp; Brickell</span><img class="pv" src="assets/zone-brickell.webp" alt="" width="730" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
+  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33109,33119,33139,33140,33141,33239,33299" target="_blank" rel="noopener"><span class="n">02</span><span class="t">Miami Beach</span><img class="pv" src="assets/zone-beach.webp" alt="" width="340" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
+  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33143,33173,33183,33256,33296,33156,33176,33186,33283,33193,33173,33196,33186,33176" target="_blank" rel="noopener"><span class="n">03</span><span class="t">Kendall</span><img class="pv" src="assets/zone-kendall.webp" alt="" width="340" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
+  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33124,33134,33144,33156,33206,33133,33143,33146,33158" target="_blank" rel="noopener"><span class="n">04</span><span class="t">Coral Gables</span><img class="pv" src="assets/zone-gables.webp" alt="" width="340" height="400" loading="lazy"><span class="a" data-i18n="z_go">Ver casas →</span></a>
+  <a class="zrow rv" href="https://realtygroup.miami/house/?action=1&postalcode=33122,33126,33166,33172,33178,33191,33192" target="_blank" rel="noopener"><span class="n">05</span><span class="t">Doral</span><span class="a" data-i18n="z_go">Ver casas →</span></a>
+</section>
+
+<section class="about" id="sobre-mi">
+  <div class="rv">
+    <p class="eyebrow" data-i18n="a_eye">Sobre mí</p>
+    <h2 data-i18n="a_h">Siempre a tu lado</h2>
+    <p data-i18n="a_p">Soy José Luis Herrera, Realtor® de servicio completo y tiempo completo, experto en marketing. Te acompaño tanto si compras, vendes o rentas una casa en Miami.</p>
+    <dl class="facts">
+      <div><dt data-i18n="f_lic">Licencia</dt><dd>LIC # 3423324</dd></div>
+      <div><dt data-i18n="f_bro">Brokerage</dt><dd>Miami New Realty</dd></div>
+      <div><dt data-i18n="f_lang">Idiomas</dt><dd>English · Español</dd></div>
+      <div><dt data-i18n="f_rev">Reseñas en Google</dt><dd><a href="https://maps.google.com/?cid=11353234218788330645" target="_blank" rel="noopener">103</a></dd></div>
+    </dl>
+  </div>
+  <div class="quotes">
+    <figure class="quote rv"><blockquote>“Jose is by far the best realtor in Miami—if not in the entire tri-county area.”</blockquote><cite>Abel Deulofeu</cite></figure>
+    <figure class="quote rv"><blockquote>“He was by our side every step of the way during the sale of our house”</blockquote><cite>Birgit Iff</cite></figure>
+    <figure class="quote rv"><blockquote>“Pocas palabras para definirlo: transparencia, exelencia y profesionalidad !”</blockquote><cite>Gonzalo Salazar</cite></figure>
+    <p class="qnote"><span data-i18n="q_note">Extractos de reseñas de clientes en</span> <a href="https://realtygroup.miami/" target="_blank" rel="noopener">realtygroup.miami</a>.</p>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <p class="eyebrow rv" data-i18n="c_eye">Contacto</p>
+  <h2 class="rv" data-i18n="c_h">Hablemos de tu próxima casa</h2>
+  <p class="lead rv" data-i18n="c_p">Escríbeme y te respondo directo. También puedo enviarte un análisis comparativo de mercado (CMA) de tu propiedad.</p>
+  <div class="cta rv">
+    <a class="btn btn-gold" data-wa href="https://wa.me/17863320991" target="_blank" rel="noopener" data-i18n="cta_wa2">WhatsApp</a>
+    <a class="btn btn-line" href="tel:+17863320991">786.332.0991</a>
+  </div>
+  <div class="clist rv">
+    <a href="mailto:joseluis@realtygroup.miami"><span data-i18n="c_mail">Correo</span><span>joseluis@realtygroup.miami</span></a>
+    <a href="tel:+17863320991"><span data-i18n="c_tel">Teléfono</span><span>786.332.0991</span></a>
+    <div><span data-i18n="c_addr">Oficina</span><span>2470 NW 102nd Place, Suite 107, Doral, FL 33172</span></div>
+  </div>
+  <div class="social rv">
+    <a href="https://www.instagram.com/joseluisherrerarealtor" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/JoseLuisHerreraRealtor" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.linkedin.com/in/joseluisherrerafleites" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.youtube.com/channel/UCVaxOjpCGGSymqZ9pJswRJg" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <img src="assets/logo-light.webp" width="233" height="44" alt="Jose Luis Herrera Real Estate">
+  <div class="row"><span>© 2026 Jose Luis Herrera, P.A. · LIC # 3423324</span><span>Miami New Realty · BK692763 (Broker)</span></div>
+  <p data-i18n="foot">Vista previa de diseño. Fotos y datos de propiedades tomados del sitio del asesor.</p>
+</footer>
+
+<a class="float" data-wa href="https://wa.me/17863320991" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.8 1 3.9 1.5 6.1 1.5 7.2 0 13-5.800 13-13S23.200 3 16 3zm0 23.800c-1.900 0-3.800-.5-5.400-1.500l-.4-.2-4 1 1.100-3.900-.3-.4C6.100 20.200 5.600 18.200 5.600 16 5.600 10.300 10.300 5.600 16 5.600S26.400 10.300 26.400 16 21.700 26.800 16 26.800zm5.800-7.900c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.300-.5-2.500-1.500-.9-.8-1.500-1.800-1.700-2.100-.2-.3 0-.5.100-.6.100-.1.300-.4.500-.5.200-.2.200-.3.300-.5.100-.2.100-.4 0-.5-.1-.2-.7-1.700-1-2.300-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.500s1.100 2.900 1.200 3.100c.2.200 2.200 3.300 5.200 4.600.7.300 1.300.5 1.700.6.700.2 1.400.2 1.900.1.600-.1 1.900-.8 2.100-1.500.3-.7.300-1.400.2-1.500-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var DICT={
+    es:{
+      title:"Jose Luis Herrera · Realtor en Miami",
+      desc:"Jose Luis Herrera, Realtor® en Miami. Casas en Kendall, Doral, Cutler Bay y más. Escríbele por WhatsApp.",
+      wa:"Hola José Luis, vi tu página y me gustaría hablar sobre una propiedad en Miami.",
+      h1a:"Tu próxima casa en Miami,",h1b:"con alguien a tu lado.",
+      hero_p:"Compra, vende o renta con un Realtor® que te acompaña en cada paso. Hablemos por WhatsApp, en español o en inglés.",
+      cta_wa:"Escríbeme por WhatsApp",cta_props:"Ver propiedades",
+      p_eye:"Propiedades disponibles",p_h:"Casas listas para conocer",p_p:"Una selección de las propiedades publicadas por José Luis. Cada una abre su ficha completa.",
+      view:"Ver propiedad",more:"Ver todas las propiedades",precon:"Pre-construcción",
+      z_eye:"Zonas",z_h:"¿Dónde quieres vivir?",z_go:"Ver casas →",
+      a_eye:"Sobre mí",a_h:"Siempre a tu lado",
+      a_p:"Soy José Luis Herrera, Realtor® de servicio completo y tiempo completo, experto en marketing. Te acompaño tanto si compras, vendes o rentas una casa en Miami.",
+      f_lic:"Licencia",f_bro:"Brokerage",f_lang:"Idiomas",f_rev:"Reseñas en Google",q_note:"Extractos de reseñas de clientes en",
+      c_eye:"Contacto",c_h:"Hablemos de tu próxima casa",c_p:"Escríbeme y te respondo directo. También puedo enviarte un análisis comparativo de mercado (CMA) de tu propiedad.",
+      cta_wa2:"WhatsApp",c_mail:"Correo",c_tel:"Teléfono",c_addr:"Oficina",
+      foot:"Vista previa de diseño. Fotos y datos de propiedades tomados del sitio del asesor.",
+      alt_h1:"Casa en Miami al atardecer, entrada con luces",alt_h2:"Casa con puerta roja bajo un cielo de atardecer",alt_h3:"Casa con garaje y palmeras bajo cielo azul"
+    },
+    en:{
+      title:"Jose Luis Herrera · Miami Realtor",
+      desc:"Jose Luis Herrera, Realtor® in Miami. Homes in Kendall, Doral, Cutler Bay and more. Message him on WhatsApp.",
+      wa:"Hi Jose Luis, I saw your page and I'd like to talk about a property in Miami.",
+      h1a:"Your next home in Miami,",h1b:"with someone by your side.",
+      hero_p:"Buy, sell or rent with a Realtor® who walks with you every step of the way. Let's talk on WhatsApp, in English or Spanish.",
+      cta_wa:"Message me on WhatsApp",cta_props:"View properties",
+      p_eye:"Available properties",p_h:"Homes ready to visit",p_p:"A selection of the properties listed by Jose Luis. Each one opens its full listing.",
+      view:"View property",more:"See all properties",precon:"Pre-construction",
+      z_eye:"Areas",z_h:"Where do you want to live?",z_go:"See homes →",
+      a_eye:"About me",a_h:"Always by your side",
+      a_p:"I'm Jose Luis Herrera, a full-service, full-time Realtor® and marketing expert. I'm with you whether you buy, sell or rent a home in Miami.",
+      f_lic:"License",f_bro:"Brokerage",f_lang:"Languages",f_rev:"Google reviews",q_note:"Excerpts from client reviews on",
+      c_eye:"Contact",c_h:"Let's talk about your next home",c_p:"Message me and I'll answer directly. I can also send you a Comparative Market Analysis (CMA) of your property.",
+      cta_wa2:"WhatsApp",c_mail:"Email",c_tel:"Phone",c_addr:"Office",
+      foot:"Design preview. Property photos and data taken from the agent's website.",
+      alt_h1:"Miami home at dusk with lit entrance",alt_h2:"House with a red door under a sunset sky",alt_h3:"House with garage and palm trees under blue sky"
+    }
+  };
+  var lang="es";
+  try{var s=localStorage.getItem("lang");if(s==="en"||s==="es")lang=s;}catch(e){}
+  function apply(l){
+    lang=l;var d=DICT[l];
+    document.documentElement.lang=l;
+    document.title=d.title;
+    document.querySelector('meta[name="description"]').setAttribute("content",d.desc);
+    document.querySelectorAll("[data-i18n]").forEach(function(n){var k=n.getAttribute("data-i18n");if(d[k]!=null)n.textContent=d[k];});
+    document.querySelectorAll("[data-i18n-alt]").forEach(function(n){var k=n.getAttribute("data-i18n-alt");if(d[k])n.setAttribute("alt",d[k]);});
+    document.querySelectorAll("[data-wa]").forEach(function(a){a.href="https://wa.me/17863320991?text="+encodeURIComponent(d.wa);});
+    document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-lang")===l?"true":"false");});
+    try{localStorage.setItem("lang",l);}catch(e){}
+  }
+  document.querySelectorAll("[data-lang]").forEach(function(b){b.addEventListener("click",function(){apply(b.getAttribute("data-lang"));});});
+  apply(lang);
+
+  var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduced)document.body.classList.add("reduced");
+
+  /* header solid on scroll */
+  var top=document.getElementById("top");
+  function onScroll(){top.classList.toggle("solid",window.scrollY>60);}
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  /* hero crossfade */
+  var slides=document.querySelectorAll(".slide"),dots=document.querySelectorAll(".dots span"),i=0;
+  if(!reduced){setInterval(function(){
+    slides[i].classList.remove("on");dots[i].classList.remove("on");
+    i=(i+1)%slides.length;
+    var im=slides[i].querySelector("img");im.loading="eager";
+    slides[i].classList.add("on");dots[i].classList.add("on");
+  },6000);}
+
+  /* reveal */
+  var rv=document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window&&!reduced){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+    rv.forEach(function(n){io.observe(n);});
+  }else{rv.forEach(function(n){n.classList.add("in");});}
+
+  /* pinned horizontal gallery (desktop) */
+  window.addEventListener("load",function(){
+    if(!window.gsap||!window.ScrollTrigger||reduced)return;
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.matchMedia({
+      "(min-width: 900px)":function(){
+        var pin=document.getElementById("pin"),track=document.getElementById("track");
+        var dist=function(){return Math.max(0,track.scrollWidth-window.innerWidth);};
+        gsap.to(track,{x:function(){return -dist();},ease:"none",
+          scrollTrigger:{trigger:pin,start:"center center",end:function(){return "+="+dist();},pin:true,scrub:.6,invalidateOnRefresh:true,anticipatePin:1}});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
